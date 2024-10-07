@@ -1,0 +1,274 @@
+<!DOCTYPE html><html lang="en" data-theme="light"><head><meta charset="utf-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Untitled | Hexo</title><noscript>Please enable JavaScript to view the site</noscript><link rel="icon" href="/img/pwa/favicon.ico"><!-- index.css--><link rel="stylesheet" href="/css/index.css?v=2.1.3"><!-- inject head--><link rel="canonical" href="http://example.com/2024/10/07/%E9%80%92%E5%BD%92/"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"><!-- aplayer--><!-- swiper--><!-- fancybox ui--><!-- katex--><!-- Open Graph--><meta name="description" content="学习方法要完善 递归的定义是解决方法的一种. 递归将问题不断分解为小问题, 直到子问题可以用普通的方法解决. 认识递归我们从简单的问题开始学习递归. 计算一列数之和给定一堆数字, 计算出这些数字的总和. 例如，我们要计算下列数字之和： 1 + 2 + 3 + 4 + 5 我们可以把这个问题看成"><!-- pwa--><meta name="apple-mobile-web-app-capable" content="Hexo"><meta name="theme-color" content="var(--efu-main)"><meta name="apple-mobile-web-app-status-bar-style" content="var(--efu-main)"><link rel="bookmark" href="/img/pwa/favicon.ico"><link rel="apple-touch-icon" href="/img/pwa/favicon.ico" sizes="180x180"><script>console.log(' %c Solitude %c ' + '2.1.3' + ' %c https://github.com/everfu/hexo-theme-solitude',
+    'background:#35495e ; padding: 1px; border-radius: 3px 0 0 3px;  color: #fff',
+    'background:#ff9a9a ; padding: 1px; border-radius: 0 3px 3px 0;  color: #fff',
+    'background:unset ; padding: 1px; border-radius: 0 3px 3px 0;  color: #fff')
+</script><script>(()=>{
+        const saveToLocal = {
+            set: function setWithExpiry(key, value, ttl) {
+                if (ttl === 0)
+                    return
+                const now = new Date()
+                const expiryDay = ttl * 86400000
+                const item = {
+                    value: value,
+                    expiry: now.getTime() + expiryDay
+                }
+                localStorage.setItem(key, JSON.stringify(item))
+            },
+            get: function getWithExpiry(key) {
+                const itemStr = localStorage.getItem(key)
+
+                if (!itemStr) {
+                    return undefined
+                }
+                const item = JSON.parse(itemStr)
+                const now = new Date()
+
+                if (now.getTime() > item.expiry) {
+                    localStorage.removeItem(key)
+                    return undefined
+                }
+                return item.value
+            }
+        };
+        window.utils = {
+            saveToLocal: saveToLocal,
+            getCSS: (url, id = false) => new Promise((resolve, reject) => {
+              const link = document.createElement('link')
+              link.rel = 'stylesheet'
+              link.href = url
+              if (id) link.id = id
+              link.onerror = reject
+              link.onload = link.onreadystatechange = function() {
+                const loadState = this.readyState
+                if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+                link.onload = link.onreadystatechange = null
+                resolve()
+              }
+              document.head.appendChild(link)
+            }),
+            getScript: (url, attr = {}) => new Promise((resolve, reject) => {
+              const script = document.createElement('script')
+              script.src = url
+              script.async = true
+              script.onerror = reject
+              script.onload = script.onreadystatechange = function() {
+                const loadState = this.readyState
+                if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+                script.onload = script.onreadystatechange = null
+                resolve()
+              }
+
+              Object.keys(attr).forEach(key => {
+                script.setAttribute(key, attr[key])
+              })
+
+              document.head.appendChild(script)
+            }),
+            addGlobalFn: (key, fn, name = false, parent = window) => {
+                const globalFn = parent.globalFn || {}
+                const keyObj = globalFn[key] || {}
+
+                if (name && keyObj[name]) return
+
+                name = name || Object.keys(keyObj).length
+                keyObj[name] = fn
+                globalFn[key] = keyObj
+                parent.globalFn = globalFn
+            },
+            addEventListenerPjax: (ele, event, fn, option = false) => {
+              ele.addEventListener(event, fn, option)
+              utils.addGlobalFn('pjax', () => {
+                  ele.removeEventListener(event, fn, option)
+              })
+          },
+        }
+    })()</script><!-- theme--><script>initTheme = () => {
+    let isDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches
+    const cachedMode = utils.saveToLocal.get('theme');
+    if (cachedMode === undefined) {
+        const nowMode =
+            isDarkMode ? 'dark' : 'light'
+        document.documentElement.setAttribute('data-theme', nowMode);
+    } else {
+        document.documentElement.setAttribute('data-theme', cachedMode);
+    }
+    typeof rm === 'object' && rm.mode(cachedMode === 'dark' && isDarkMode)
+}
+initTheme()</script><!-- global head--><script>const GLOBAL_CONFIG = {
+    root: '/',
+    algolia: undefined,
+    localsearch: undefined,
+    runtime: '2023-04-20 00:00:00',
+    lazyload: {
+        enable: false,
+        error: '/img/error_load.avif'
+    },
+    copyright: false,
+    highlight: {"limit":200,"expand":true,"copy":true,"syntax":"highlight.js"},
+    randomlink: false,
+    lang: {"theme":{"dark":"Dark","light":"Light"},"copy":{"success":"Copied","error":"Copy failed"},"backtop":"Back to top","time":{"day":" days ago","hour":" hours ago","just":"just","min":" minutes ago","month":" months ago"},"day":" days","f12":"Developer mode is turned on, please follow the GPL.","totalk":"You don't need to delete blank lines, just type in your comments."},
+    aside: {
+        sayhello: {
+            morning: "✨ Good morning. It's a new day",
+            noon: "It's time for a midday break",
+            afternoon: "Tea time. 🍵",
+            night: "early bedtime",
+            goodnight: "Good night 😴",
+        },
+        sayhello2: [],
+        sayhello3: {
+            prefix: 'Long time no see, ',
+            back: 'Welcome back again,',
+        },
+    },
+    covercolor: {
+        enable: false
+    },
+    comment: false,
+    lightbox: 'null',
+    post_ai: false,
+    right_menu: false,
+    translate: {"translateDelay":0,"defaultEncoding":2},
+    lure: false,
+    expire: false,
+};</script><!-- page-config head--><script id="config-diff">var PAGE_CONFIG = {
+    is_post: true,
+    is_page: false,
+    is_home: false,
+    page: '',
+    toc: true,
+    comment: false,
+    ai_text: false,
+    color: false,
+}</script><meta name="generator" content="Hexo 7.3.0"></head><body id="body"><!-- universe--><!-- background img--><!-- loading--><!-- console--><!-- sidebar--><div id="sidebar" style="zoom: 1;"><div id="menu-mask" style="display: none;"></div><div id="sidebar-menus"><div class="site-data"><div class="data-item is-center"><div class="data-item-link"><a href="/archives/"><div class="headline">Archives</div><div class="length-num">2</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/categories/"><div class="headline">Categories</div><div class="length-num">0</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/tags/"><div class="headline">Tags</div><div class="length-num">0</div></a></div></div></div><span class="sidebar-menu-item-title">Function</span><div class="sidebar-menu-item"><span class="darkmode_switchbutton menu-child" onclick="sco.switchDarkMode()"><i class="solitude fa-solid fa-circle-half-stroke"></i><span>Display mode</span></span></div><span class="sidebar-menu-item-title">Tags</span><div class="card-widget card-tags card-archives card-webinfo card-allinfo"><div class="card-tag-cloud"></div></div></div></div><!-- keyboard--><!-- righhtside--><div class="post" id="body-wrap"><header class="post-bg" id="page-header"><nav class="show" id="nav"><div id="nav-group"><div id="blog_name"><a id="site-name" href="/" title="Back to home"><span class="title">Solitude</span><i class="solitude fa-solid fa-home"></i></a></div><div id="page-name-mask"><div id="page-name"><a id="page-name-text" onclick="sco.toTop()">Untitled</a></div></div><div id="menus"></div><div id="nav-left"></div><div id="nav-right"><div class="nav-button" id="nav-totop" onclick="sco.toTop()"><a class="totopbtn"><i class="solitude fa-solid fa-arrow-up"></i><span id="percent">0</span></a></div><div id="toggle-menu"><a class="site-page"><i class="solitude fa-solid fa-bars"></i></a></div></div></div></nav><div class="coverdiv" id="coverdiv"><img class="nolazyload" id="post-cover" src="/img/default.avif" alt="Untitled"></div><div id="post-info"><div id="post-firstinfo"><div class="meta-firstline"><a class="post-meta-original" title="This article is a Original article, pay attention to the copyright.">Original</a><div class="tag_share"><div class="post-meta__tag-list"></div></div></div></div><h1 class="post-title">Untitled</h1><div id="post-meta"><div class="meta-secondline"></div></div></div><section class="main-hero-waves-area waves-area"><svg class="waves-svg" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto"><defs><path id="gentle-wave" d="M -160 44 c 30 0 58 -18 88 -18 s 58 18 88 18 s 58 -18 88 -18 s 58 18 88 18 v 44 h -352 Z"></path></defs><g class="parallax"><use href="#gentle-wave" x="48" y="0"></use><use href="#gentle-wave" x="48" y="3"></use><use href="#gentle-wave" x="48" y="5"></use><use href="#gentle-wave" x="48" y="7"></use></g></svg></section></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><p><strong>学习方法要完善</strong></p>
+<h1 id="递归的定义"><a href="#递归的定义" class="headerlink" title="递归的定义"></a>递归的定义</h1><p>是<strong>解决方法</strong>的一种.</p>
+<p>递归将问题不断分解为小问题, 直到子问题可以用普通的方法解决.</p>
+<h1 id="认识递归"><a href="#认识递归" class="headerlink" title="认识递归"></a>认识递归</h1><p>我们从简单的问题开始学习递归.</p>
+<h2 id="计算一列数之和"><a href="#计算一列数之和" class="headerlink" title="计算一列数之和"></a>计算一列数之和</h2><p>给定一堆数字, 计算出这些数字的总和. </p>
+<p>例如，我们要计算下列数字之和：</p>
+<blockquote>
+<p>1 + 2 + 3 + 4 + 5</p>
+</blockquote>
+<p>我们可以把这个问题看成：<br>    sum &#x3D; 1 + （2 + 3 + 4 + 5） &#x3D; 1 + a<br>    a &#x3D; 2 + (3 + 4 + 5) &#x3D; 2 + b<br>    b &#x3D; 3 + (4 + 5) &#x3D; 3 + c<br>    c &#x3D; 4 + 5 &#x3D; 4 + d<br>    d &#x3D; 5</p>
+<p>这样，我们发现了这个问题，总是可以看成是这个样子的：</p>
+<ul>
+<li>前五个数字之和 &#x3D; 第一个数字 + 后四个数字之和</li>
+<li>后四个数字之和 &#x3D; 第一个数字 + 后三个数字之和</li>
+<li>…</li>
+</ul>
+<p>我们还发现了，停止分解这个问题的条件是：<br><strong>数字列表长度为 1</strong></p>
+<p>最终代码如下：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">numlist_sum</span>(<span class="params">numlist</span>):</span><br><span class="line"><span class="keyword">if</span> <span class="built_in">len</span>(numlist) == <span class="number">1</span>:</span><br><span class="line">    <span class="keyword">return</span> numlist[<span class="number">0</span>]</span><br><span class="line"><span class="keyword">else</span>:</span><br><span class="line">    <span class="keyword">return</span> numlist[<span class="number">0</span>] + numlist_sum(numlist[<span class="number">1</span>:])</span><br></pre></td></tr></table></figure>
+
+<h1 id="递归三原则"><a href="#递归三原则" class="headerlink" title="递归三原则"></a>递归三原则</h1><ol>
+<li><p>递归必须有<strong>停止递归的条件</strong></p>
+<ul>
+<li>当问题不能再分解了，应该停止递归</li>
+</ul>
+</li>
+<li><p>要让问题不断分解, 使其逐渐逼近停止递归的条件</p>
+</li>
+<li><p>递归算法要不断地调用自己</p>
+</li>
+</ol>
+<h1 id="栈的本质"><a href="#栈的本质" class="headerlink" title="栈的本质"></a>栈的本质</h1><p>要用栈的视角来看待递归。</p>
+<p>事实上，递归是一种隐式调用栈来运行代码的。</p>
+<p>作者使用了一种显式使用栈来调用递归，来帮助我们理解这个过程：</p>
+<figure class="highlight python"><figcaption><span>title:显式使用栈来调用递归</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">to_str_by_stack</span>(<span class="params">num,base</span>):</span><br><span class="line">	convert_num = <span class="string">&quot;0123456789ABCDEF&quot;</span></span><br><span class="line"></span><br><span class="line">	<span class="keyword">if</span> num &lt; base:</span><br><span class="line">	    num_stack.push(convert_num[num])</span><br><span class="line">	<span class="keyword">else</span>:</span><br><span class="line">	    num_stack.push(convert_num[num%base])</span><br><span class="line">	    to_str_by_stack(num//base,base)</span><br></pre></td></tr></table></figure>
+
+<p>因为我是隔了一段时间来学这个的。所以这一块没搞清楚。</p>
+<h1 id="递归可视化"><a href="#递归可视化" class="headerlink" title="递归可视化"></a>递归可视化</h1><p>作者使用了 turtle 库，旨在让我们直观递归的运行。</p>
+<p>但是我没看懂😭</p>
+<h2 id="绘制螺旋线"><a href="#绘制螺旋线" class="headerlink" title="绘制螺旋线"></a>绘制螺旋线</h2><p>[[计算机&#x2F;python数据结构&#x2F;_resources&#x2F;4. 递归&#x2F;52c7d1c271b355b7cb6918efba062092_MD5.jpeg|Open: Pasted image 20240924200347.png]]<br>![[计算机&#x2F;python数据结构&#x2F;_resources&#x2F;4. 递归&#x2F;52c7d1c271b355b7cb6918efba062092_MD5.jpeg]]</p>
+<p><code>forward</code> 表示的是画线的长度.<br><code>right(90)</code> 表示向右旋转 90 度</p>
+<p>就是说, 这个代码从 100 开始, 先画一条 100 长的线 (我不知道长度单位是什么), 然后向右旋转 90 度, 再递归调用自己, 画一条当前 95 长度的线, 再旋转 90 度, 如此往复.<br>基准条件就是 len &#x3D;&#x3D; 0 的时候.</p>
+<h2 id="绘制分形树"><a href="#绘制分形树" class="headerlink" title="绘制分形树"></a>绘制分形树</h2><p>[[计算机&#x2F;python数据结构&#x2F;_resources&#x2F;4. 递归&#x2F;d41302de0d03719a1d727ed2e6f387d1_MD5.jpeg|Open: Pasted image 20240924200955.png]]<br>![[计算机&#x2F;python数据结构&#x2F;_resources&#x2F;4. 递归&#x2F;d41302de0d03719a1d727ed2e6f387d1_MD5.jpeg]]</p>
+<p>这个代码我不太懂.<br>我知道的是, 这个递归的顺序是:</p>
+<ul>
+<li>先递归右支, 不断递归, 直到 branchLen &lt;&#x3D;5</li>
+<li>然后递归左支, 此时的左支是从最后一个右支所在的位置开始的, 往前递归.</li>
+</ul>
+<p>具体过程应该是这样的 (我也是猜的):<br>[[计算机&#x2F;python数据结构&#x2F;_resources&#x2F;4. 递归&#x2F;5912709eecf8c1f474bb2d63780b01cf_MD5.jpeg|Open: Pasted image 20240924201840.png]]<br>![[计算机&#x2F;python数据结构&#x2F;_resources&#x2F;4. 递归&#x2F;5912709eecf8c1f474bb2d63780b01cf_MD5.jpeg]]</p>
+<h2 id="希尔平斯基三角形"><a href="#希尔平斯基三角形" class="headerlink" title="希尔平斯基三角形"></a>希尔平斯基三角形</h2><p>手动绘制谢尔平斯基三角形的过程十分简单：从一个大三角形开始，通过连接每条边的中点将它分割成四个新的三角形；忽略中间的三角形，利用同样的方法分割其余三个三角形。</p>
+<p>[[计算机&#x2F;python数据结构&#x2F;_resources&#x2F;4. 递归&#x2F;3906cbc36f15e3d7b6fd7e8758110ed0_MD5.jpeg|Open: Pasted image 20240924202106.png]]</p>
+<p>![[计算机&#x2F;python数据结构&#x2F;_resources&#x2F;4. 递归&#x2F;3906cbc36f15e3d7b6fd7e8758110ed0_MD5.jpeg]]</p>
+<figure class="highlight python"><figcaption><span>hl:48-59</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 绘制谢尔平斯基三角形</span></span><br><span class="line"><span class="keyword">from</span> turtle <span class="keyword">import</span> *</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">drawTriangle</span>(<span class="params">points,color,myTurtle</span>):</span><br><span class="line">    <span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">    在制定的坐标处绘制三角形</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">    Args:</span></span><br><span class="line"><span class="string">        points (_type_): 三角形三个角的坐标</span></span><br><span class="line"><span class="string">        color (_type_): 此三角形的颜色</span></span><br><span class="line"><span class="string">        myTurtle (_type_): _划线的一个对象_</span></span><br><span class="line"><span class="string">    &quot;&quot;&quot;</span></span><br><span class="line">    <span class="comment"># ! 三角形的颜色</span></span><br><span class="line">    myTurtle.fillcolor(color)</span><br><span class="line">    myTurtle.up()</span><br><span class="line">    <span class="comment"># ! 三角形的绘制起点</span></span><br><span class="line">    myTurtle.goto(points[<span class="number">0</span>])</span><br><span class="line">    myTurtle.down()</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 填充的起点</span></span><br><span class="line">    myTurtle.begin_fill()</span><br><span class="line"></span><br><span class="line">    myTurtle.goto(points[<span class="number">1</span>])</span><br><span class="line">    myTurtle.goto(points[<span class="number">2</span>])</span><br><span class="line">    myTurtle.goto(points[<span class="number">0</span>])</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 填充的终点</span></span><br><span class="line">    myTurtle.end_fill()</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">getMid</span>(<span class="params">p1,p2</span>):</span><br><span class="line">    <span class="string">&quot;&quot;&quot;获取三角形的中点</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">    Args:</span></span><br><span class="line"><span class="string">        p1 (_type_): _description_</span></span><br><span class="line"><span class="string">        p2 (_type_): _description_</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">    Returns:</span></span><br><span class="line"><span class="string">        _type_: _description_</span></span><br><span class="line"><span class="string">    &quot;&quot;&quot;</span></span><br><span class="line">    <span class="keyword">return</span> ( (p1[<span class="number">0</span>]+p2[<span class="number">0</span>])/<span class="number">2</span>, (p1[<span class="number">1</span>]+p2[<span class="number">1</span>])/<span class="number">2</span> )</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">sierpinski</span>(<span class="params">points,degree,myTurtle</span>):</span><br><span class="line">    colorMap = [<span class="string">&#x27;blue&#x27;</span>,<span class="string">&#x27;red&#x27;</span>,<span class="string">&#x27;green&#x27;</span>,<span class="string">&#x27;white&#x27;</span>,<span class="string">&#x27;yellow&#x27;</span>,<span class="string">&#x27;violet&#x27;</span>,<span class="string">&#x27;orange&#x27;</span>]</span><br><span class="line">    <span class="comment"># todo 首先，绘制一个紫色的三角形</span></span><br><span class="line">    drawTriangle(points,colorMap[degree],myTurtle)</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 基准条件： degree = 0</span></span><br><span class="line">    <span class="keyword">if</span> degree &gt; <span class="number">0</span>:</span><br><span class="line">        temp = [points[<span class="number">0</span>],getMid(points[<span class="number">0</span>],points[<span class="number">1</span>]),getMid(points[<span class="number">0</span>],points[<span class="number">2</span>])]</span><br><span class="line">        sierpinski(temp,degree-<span class="number">1</span>,myTurtle)</span><br><span class="line">        </span><br><span class="line">        <span class="comment">#</span></span><br><span class="line">        temp = [points[<span class="number">1</span>], getMid(points[<span class="number">0</span>], points[<span class="number">1</span>]), getMid(points[<span class="number">1</span>], points[<span class="number">2</span>])]</span><br><span class="line">        sierpinski(temp, degree - <span class="number">1</span>, myTurtle)</span><br><span class="line">        </span><br><span class="line">        <span class="comment">#</span></span><br><span class="line">        temp = [points[<span class="number">2</span>], getMid(points[<span class="number">2</span>], points[<span class="number">1</span>]), getMid(points[<span class="number">0</span>], points[<span class="number">2</span>])]</span><br><span class="line">        sierpinski(temp, degree - <span class="number">1</span>, myTurtle)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">myTurtle = Turtle()</span><br><span class="line">myWindows = myTurtle.getscreen()</span><br><span class="line">myPoints = [(-<span class="number">500</span>,-<span class="number">250</span>),(<span class="number">0</span>,<span class="number">500</span>),(<span class="number">500</span>,-<span class="number">250</span>)]</span><br><span class="line">sierpinski(myPoints,<span class="number">5</span>,myTurtle)</span><br><span class="line">myWindows.exitonclick()</span><br></pre></td></tr></table></figure>
+
+<p>先递归绘制完所有的左下角的三角形,这个递归的过程的中点是逐渐减小的;<br>然后从最后一个左下角的三角形开始,递归绘制完所有顶部的三角形,这个递归过程的中点是逐渐变大的;<br>然后从最后一个顶部的三角形开始,递归完所有右下角的三角形</p>
+<p>流程图大概这样.<br>[[计算机&#x2F;python数据结构&#x2F;_resources&#x2F;4. 递归&#x2F;80f0f9d021fd7ff0b4d6a6637c27b3e1_MD5.jpeg|Open: Pasted image 20240924204555.png]]<br>![[计算机&#x2F;python数据结构&#x2F;_resources&#x2F;4. 递归&#x2F;80f0f9d021fd7ff0b4d6a6637c27b3e1_MD5.jpeg]]</p>
+<h2 id="汉诺塔问题"><a href="#汉诺塔问题" class="headerlink" title="!汉诺塔问题"></a>!汉诺塔问题</h2><p>汉诺塔问题由法国数学家爱德华·卢卡斯于 1883 年提出。</p>
+<p>有 3 根柱子和 64 个依次叠好的金盘子，下面的盘子大，上面的盘子小。你的任务是将 64 个叠好的盘子从一根柱子移动到另一根柱子.<br>同时有三个重要的限制条件：<strong>每次只能移动一个盘子，并且大盘子不能放在小盘子之上, 并且只能从上到下的顺序取盘子.</strong><br>你夜以继日地移动盘子（每一秒移动一个盘子），试图完成任务。</p>
+<h3 id="思路和解决方法"><a href="#思路和解决方法" class="headerlink" title="思路和解决方法"></a>思路和解决方法</h3><p>假设有一个四层的汉诺塔的盘子在起始柱a上,有一个辅助柱b,要将a柱上的盘子移动到c柱上.<br>现在,有四层汉诺塔的盘子在a柱,要移动到c柱上,需要做三件事:</p>
+<ol>
+<li>把前三层(前三层的顺序是指自上而下的顺序)的盘子移动到b柱</li>
+<li>然后把最后一个盘子(同样按照是自上而下的顺序)移动到c柱</li>
+<li>最后,我要把b柱上的三层汉诺塔的盘子移动到c柱上.</li>
+</ol>
+<p>那么,如何完成第一件事呢?即如何把前三层的盘子移动到b柱上呢?事实上考虑前三层的汉诺塔如何移动到b柱上的这个问题,等价于考虑a柱上的一个三层汉诺塔的盘子到b柱上的问题.并且,移动到b柱和移动到c柱使用的方法上一样的.为了让三层汉诺塔的盘子移动到b柱,需要完成三件事.</p>
+<ol>
+<li>前两层汉诺塔的盘子移动到c柱.</li>
+<li>将最后一层的盘子移动到b柱.</li>
+<li>将刚刚放置到c柱上的前两层汉诺塔的盘子移动到b柱</li>
+</ol>
+<p>为了完成上一个步骤的第一件事,让前两层汉诺塔的盘子移动到c柱,也就是让a柱上只有两层的汉诺塔的盘子移动到c柱上.仍然需要完成三件事:</p>
+<ol>
+<li>前一层的汉诺塔的盘子移动到b柱</li>
+<li>将最后一个盘子移动到c柱</li>
+<li>将刚刚放置到b柱上的一层汉诺塔的盘子移动到c柱<br>这一次可以同时完成三件事.第一件事可以直接完成,因为最后一个盘子可以直接移动到到b柱上.这就是说,让前两层汉诺塔的盘子移动到c柱,这件事已完成.让我们回到上一个步骤,即把前三层的盘子移动到b柱上.</li>
+</ol>
+<p>对于把前三层的盘子移动到b柱上这个问题来说,第一个事情已完成,第二个事情也可以直接完成.对于第三个事情来说,如何将刚刚放置到c柱上的前两层汉诺塔的盘子移动到b柱,事实上等价于,以c柱为起始点的两层汉诺塔,如何移动到b柱上.这个分解方法和移动步骤和之前如出一辙.具体来说,仍然上三个步骤:</p>
+<ol>
+<li>要把第一层的盘子移动到c柱上</li>
+<li>移动最后一个盘子到b柱</li>
+<li>最后将刚刚放置的第一层的盘子移动到b柱上.<br>也就是说,解决第三件事的方法,除了起始柱和目标柱不一样,整体方法完全一样.<br>这样,第三件事就解决了.我们再回到上一级步骤,即将在a柱上的四层汉诺塔的盘子移动到c柱上.</li>
+</ol>
+<p>对于在a柱上的四层汉诺塔的盘子移动到c柱上来说,第一件事情已经解决,第二件事情也可以直接解决.第三件事的解决步骤和解决四层汉诺塔的盘子移动到c柱上的方法来说上一样的.</p>
+<p>因此,我们知道了,如果要递归解决这个问题,要设计一个具备如下功能的函数:<br>将总层数为x的的汉诺塔盘子,从起始柱a移动到目标柱c,这个过程借助了辅助柱b.<br>这个函数应该具备这些参数,function(x层数,起始柱a,辅助柱b,目标柱c).</p>
+<p>具体来说,为了实现这个<strong>函数的功能</strong>,需要:</p>
+<ul>
+<li>将总层数x-1的汉诺塔的盘子从起始柱移动到辅助柱</li>
+<li>将总层数x的汉诺塔的最后一个盘子从起始柱移动移动到目标柱</li>
+<li>将总层数x-1的汉诺塔的盘子从辅助柱移动到目标柱</li>
+</ul>
+<p>刚才的问题’如何将前三层的盘子移动到b柱上这个问题’的解决方放里的要解决的第三件事情表明,起始柱和目标柱需要发生调换.</p>
+<p>至此,这个问题已解决.</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">moveTower</span>(<span class="params">height,fromPole,toPole,withPole</span>):</span><br><span class="line">    <span class="string">&quot;&quot;&quot;将层数为height的汉诺塔从起始柱移动到目标柱,借助辅助柱</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">    Args:</span></span><br><span class="line"><span class="string">        height (_type_): _层数_</span></span><br><span class="line"><span class="string">        fromPole (_type_): _起始柱_</span></span><br><span class="line"><span class="string">        toPole (_type_): _目标柱_</span></span><br><span class="line"><span class="string">        withPole (_type_): _辅助柱_</span></span><br><span class="line"><span class="string">    &quot;&quot;&quot;</span></span><br><span class="line">    <span class="keyword">if</span> height &gt;= <span class="number">1</span>:</span><br><span class="line">        moveTower(height-<span class="number">1</span>,fromPole,withPole,toPole)</span><br><span class="line"></span><br><span class="line">        moveDisk(fromPole,toPole)</span><br><span class="line"></span><br><span class="line">        moveTower(height-<span class="number">1</span>,withPole,toPole,fromPole)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">moveDisk</span>(<span class="params">fromPole,toPole</span>):</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">f&quot;<span class="subst">&#123;fromPole&#125;</span> 已经移动到了 <span class="subst">&#123;toPole&#125;</span>&quot;</span>)</span><br></pre></td></tr></table></figure>
+
+
+</article><div class="post-copyright"><div class="post-copyright__author_group"><a class="post-copyright__author_img" href="/about/"><img class="post-copyright__author_img_front" src="/img/pwa/favicon.ico"></a><div class="post-copyright__author_name">Hexo</div><div class="post-copyright__author_desc"></div></div><div class="post-tools" id="post-tools"><div class="post-tools-left"><div id="quit-box" onclick="RemoveRewardMask()"></div></div></div><div class="post-copyright__notice"><span class="post-copyright-info">This piece of writing is an original article, utilizing the<a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">CC BY-NC-SA 4.0</a>Agreement. For complete reproduction, please acknowledge the source as Courtesy of<a href="/">Hexo</a></span></div></div><div class="post-tools-right"><div class="tag_share"><div class="post-meta__tag-list"></div></div></div><nav class="needEndHide pagination-post" id="pagination"><div class="next-post pull-full"><a href="/2024/10/07/hello-world/"><div class="pagination-info"><div class="label">Next</div><div class="next_info">Hello World</div></div></a></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="card-content"><div class="card-info-avatar is-center"><div class="author-info__top-group"><div class="author-info__sayhi" id="author-info__sayhi" onclick="sco.changeSayHelloText()">sayhello.morning</div></div></div><div class="avatar-img-group"><img class="avatar-img" alt="Avatar" src="/img/avatar.avif"></div><div class="author-info__description_group"><div class="author-info__description"></div><div class="author-info__description2"></div></div><div class="author-info__bottom-group"><a class="author-info__bottom-group-left" href="/about/"><div class="author-info__name">John Doe</div><div class="author-info__desc"></div></a><div class="card-info-social-icons is-center"></div></div></div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="solitude fa-solid fa-bars"></i><span>Table of contents</span></div><div class="toc-content" id="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E9%80%92%E5%BD%92%E7%9A%84%E5%AE%9A%E4%B9%89"><span class="toc-text">递归的定义</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E8%AE%A4%E8%AF%86%E9%80%92%E5%BD%92"><span class="toc-text">认识递归</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%AE%A1%E7%AE%97%E4%B8%80%E5%88%97%E6%95%B0%E4%B9%8B%E5%92%8C"><span class="toc-text">计算一列数之和</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E9%80%92%E5%BD%92%E4%B8%89%E5%8E%9F%E5%88%99"><span class="toc-text">递归三原则</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%A0%88%E7%9A%84%E6%9C%AC%E8%B4%A8"><span class="toc-text">栈的本质</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E9%80%92%E5%BD%92%E5%8F%AF%E8%A7%86%E5%8C%96"><span class="toc-text">递归可视化</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%BB%98%E5%88%B6%E8%9E%BA%E6%97%8B%E7%BA%BF"><span class="toc-text">绘制螺旋线</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%BB%98%E5%88%B6%E5%88%86%E5%BD%A2%E6%A0%91"><span class="toc-text">绘制分形树</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B8%8C%E5%B0%94%E5%B9%B3%E6%96%AF%E5%9F%BA%E4%B8%89%E8%A7%92%E5%BD%A2"><span class="toc-text">希尔平斯基三角形</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%B1%89%E8%AF%BA%E5%A1%94%E9%97%AE%E9%A2%98"><span class="toc-text">!汉诺塔问题</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%80%9D%E8%B7%AF%E5%92%8C%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95"><span class="toc-text">思路和解决方法</span></a></li></ol></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="solitude fa-solid fa-map"></i><span>New posts</span></div><div class="aside-list"><a class="aside-list-item" href="/2024/10/07/%E9%80%92%E5%BD%92/" title="Untitled"><div class="thumbnail"><img alt="Untitled" src="/img/default.avif"></div><div class="content"><span class="title" href="/2024/10/07/%E9%80%92%E5%BD%92/" title="Untitled">Untitled</span></div></a><a class="aside-list-item" href="/2024/10/07/hello-world/" title="Hello World"><div class="thumbnail"><img alt="Hello World" src="/"></div><div class="content"><span class="title" href="/2024/10/07/hello-world/" title="Hello World">Hello World</span></div></a></div></div></div></div></main><footer id="footer"><div id="footer_deal"></div><div id="st-footer"></div><div id="footer-bar"><div class="footer-bar-links"><div class="footer-bar-left"><div class="copyright">© 2023 - 2024 By&nbsp;<a class="footer-bar-link" href="/">John Doe</a></div></div><div class="footer-bar-right"><a class="footer-bar-link" target="_blank" rel="noopener" href="https://github.com/everfu/hexo-theme-solitude" alt="Theme">Theme</a></div></div></div></footer></div><!-- right_menu--><!-- inject body--><div><script src="/js/utils.js?v=2.1.3"></script><script src="/js/main.js?v=2.1.3"></script><script src="/js/third_party/waterfall.min.js?v=2.1.3"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/pjax/0.2.8/pjax.min.js"></script><script src="/js/tw_cn.js?v=2.1.3"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/node-snackbar/0.1.16/snackbar.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/pace/1.2.4/pace.min.js"></script><div class="js-pjax"></div></div><!-- pjax--><script>const pjax = new Pjax({
+    elements: 'a:not([target="_blank"])',
+    selectors: ['title','#body-wrap','#site-config','meta[name="description"]','.js-pjax','meta[property^="og:"]','#config-diff', '.rs_show', '.rs_hide'],
+    cacheBust: false,
+    analytics: false,
+    scrollRestoration: false
+})
+
+document.querySelectorAll('script[data-pjax]').forEach(item => {
+    const newScript = document.createElement('script')
+    const content = item.text || item.textContent || item.innerHTML || ""
+    Array.from(item.attributes).forEach(attr => newScript.setAttribute(attr.name, attr.value))
+    newScript.appendChild(document.createTextNode(content))
+    item.parentNode.replaceChild(newScript, item)
+})
+
+document.addEventListener('pjax:complete', () => {
+    window.refreshFn()
+
+    document.querySelectorAll('script[data-pjax]').forEach(item => {
+        const newScript = document.createElement('script')
+        const content = item.text || item.textContent || item.innerHTML || ""
+        Array.from(item.attributes).forEach(attr => newScript.setAttribute(attr.name, attr.value))
+        newScript.appendChild(document.createTextNode(content))
+        item.parentNode.replaceChild(newScript, item)
+    })
+
+    GLOBAL_CONFIG.islazyload && window.lazyLoadInstance.update()
+
+})
+
+document.addEventListener('pjax:error', (e) => {
+    if (e.request.status === 404) {
+        pjax.loadUrl('/404.html')
+    }
+})</script><!-- google adsense--><!-- search--><!-- Tianli-Talk--><!-- music--></body></html><script>const posts=["2024/10/07/递归/","2024/10/07/hello-world/"];function toRandomPost(){ pjax.loadUrl(GLOBAL_CONFIG.root+posts[Math.floor(Math.random()*posts.length)]); }</script>
